@@ -1,0 +1,1 @@
+"""Hermes trading worker."""

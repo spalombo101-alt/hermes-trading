@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Agent Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Monaco', 'Courier New', monospace; background: linear-gradient(135deg, #0a0e27 0%, #1a1f4b 100%); color: #e0e0e0; padding: 20px; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #00ff88; padding-bottom: 20px; }
+        h1 { font-size: 2.5em; color: #00ff88; margin-bottom: 5px; text-shadow: 0 0 20px rgba(0, 255, 136, 0.5); }
+        .status { font-size: 14px; color: #888; }
+        .status.live { color: #00ff88; font-weight: bold; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: rgba(20, 25, 50, 0.8); border: 1px solid #00ff88; border-radius: 8px; padding: 25px; box-shadow: 0 0 20px rgba(0, 255, 136, 0.1); }
+        .card:hover { box-shadow: 0 0 30px rgba(0, 255, 136, 0.3); border-color: #00ffcc; }
+        .card-label { font-size: 11px; color: #00ff88; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .card-value { font-size: 32px; font-weight: bold; color: #ffffff; margin: 10px 0; }
+        .card-value.positive { color: #00ff88; }
+        .card-value.negative { color: #ff4444; }
+        .card-detail { font-size: 12px; color: #888; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; }
+        .trades-section { background: rgba(20, 25, 50, 0.8); border: 1px solid #00ff88; border-radius: 8px; padding: 25px; margin-bottom: 30px; }
+        .trades-section h2 { color: #00ff88; margin-bottom: 20px; font-size: 18px; text-transform: uppercase; }
+        .trade { background: rgba(10, 15, 35, 0.5); border-left: 3px solid #00ff88; padding: 15px; margin-bottom: 10px; border-radius: 4px; font-size: 13px; }
+        .trade-symbol { color: #00ffcc; font-weight: bold; }
+        .trade-pnl { float: right; font-weight: bold; }
+        .trade-pnl.win { color: #00ff88; }
+        .trade-pnl.loss { color: #ff4444; }
+        .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Trading Agent Dashboard</h1>
+            <p class="status"><span class="live">● LIVE</span></p>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-label">Current Price</div>
+                <div class="card-value">$592.10</div>
+                <div class="card-detail"><strong>META</strong> | RSI: 33.66</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Total Performance</div>
+                <div class="card-value negative">-0.069%</div>
+                <div class="card-detail">Across 37 closed trades</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Win Rate</div>
+                <div class="card-value">24.3%</div>
+                <div class="card-detail">9 wins / 13 losses</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Strategy Version</div>
+                <div class="card-value">v02</div>
+                <div class="card-detail">Entry RSI: 32</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Status</div>
+                <div class="card-value positive">No Open Position</div>
+                <div class="card-detail">Next review: 3 trades</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-label">Last Hermes Update</div>
+                <div class="card-value">entry.threshold</div>
+                <div class="card-detail">Changed from 30 → 32</div>
+            </div>
+        </div>
+        
+        <div class="trades-section">
+            <h2>Recent Trades (Last 5)</h2>
+            <div class="trade">
+                <span class="trade-symbol">META</span>
+                <span class="trade-pnl loss">-0.029%</span>
+                <div style="clear: both; font-size: 11px; color: #666; margin-top: 5px;">Entry: $65,032 → Exit: $65,011 | v02</div>
+            </div>
+            <div class="trade">
+                <span class="trade-symbol">META</span>
+                <span class="trade-pnl win">+0.017%</span>
+                <div style="clear: both; font-size: 11px; color: #666; margin-top: 5px;">Entry: $65,015 → Exit: $65,026 | v02</div>
+            </div>
+            <div class="trade">
+                <span class="trade-symbol">META</span>
+                <span class="trade-pnl win">+0.005%</span>
+                <div style="clear: both; font-size: 11px; color: #666; margin-top: 5px;">Entry: $65,013 → Exit: $65,016 | v02</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>📊 Self-improving trading agent | Paper trading mode (no real money at risk)</p>
+            <p>🔗 Connected to Railway • 🧠 Hermes monitoring • 📈 Learning in progress</p>
+        </footer>
+    </div>
+</body>
+</html>

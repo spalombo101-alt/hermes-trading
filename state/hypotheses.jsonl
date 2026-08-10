@@ -1,0 +1,1 @@
+{"changed": "entry.threshold", "from_version": "01", "metrics": {"drawdown": 0.0, "realised_return": 0.0, "score": 0.0}, "mode": "fallback", "new": 32, "prior": 30, "reason": "realised return below target, loosening entry threshold by 2", "to_version": "02", "ts": 1786206838}

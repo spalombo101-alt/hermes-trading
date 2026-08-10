@@ -1,0 +1,15 @@
+[project]
+name = "hermes-trading"
+version = "0.1.0"
+description = "Self-improving paper trading worker"
+requires-python = ">=3.11"
+dependencies = [
+    "ccxt",
+    "yfinance",
+    "pyyaml",
+    "httpx",
+    "aiofiles",
+    "numpy",
+    "pandas",
+    "rich",
+]
