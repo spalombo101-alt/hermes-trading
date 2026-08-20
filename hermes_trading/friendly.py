@@ -68,7 +68,7 @@ def generate_summary(state_dir: Path = STATE) -> str:
     total_pnl = sum(float(t.get("pnl_pct", 0)) for t in trades)
     wins = sum(1 for t in trades if float(t.get("pnl_pct", 0)) > 0)
     losses = sum(1 for t in trades if float(t.get("pnl_pct", 0)) < 0)
-    last_price = heartbeat.get("last")
+    last_price = heartbeat.get("price")
     current_rsi = heartbeat.get("rsi")
     open_position = heartbeat.get("open_position")
     trades_until_reflection = max(0, reflection_every - (closed % reflection_every or reflection_every)) if closed else reflection_every
@@ -107,7 +107,7 @@ def generate_summary(state_dir: Path = STATE) -> str:
             pnl = float(trade.get("pnl_pct", 0))
             direction = "made" if pnl > 0 else "lost" if pnl < 0 else "broke even at"
             lines.append(
-                f"- Strategy v{trade.get('strategy_version', '?')}: bought near **{float(trade.get('entry_price', 0)):,.2f}**, "
+                f"- Strategy v{trade.get('strategy', '?')}: bought near **{float(trade.get('entry_price', 0)):,.2f}**, "
                 f"sold near **{float(trade.get('exit_price', 0)):,.2f}**, and {direction} **{abs(pnl):.3f}%** on paper."
             )
         lines.append("")
